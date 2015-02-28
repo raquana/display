@@ -13,7 +13,7 @@ class PFW(FileSystemEventHandler):
                                         stdout=subprocess.PIPE,
                                         stdin=subprocess.PIPE,
                                         stderr=subprocess.PIPE)
-        print 'Process Id: ' + str(self.theProc.pid)
+#        print 'Process Id: ' + str(self.theProc.pid)
         self.running = True
         self.fullStop = False
 
@@ -25,9 +25,10 @@ class PFW(FileSystemEventHandler):
 
     def stopRunning(self):
         self.running = False
-        print 'Stopping process'
-        print self.theProc.communicate(input=" ")[0]
-        print 'Stopped'
+#        print 'Stopping process'
+#        print self.theProc.communicate(input=" ")[0]
+        self.theProc.communicate(input=" ")[0]
+#        print 'Stopped'
 
     def on_modified(self, event):
 	if self.running and isinstance(event, FileModifiedEvent) and event.src_path == './test.ppm':
