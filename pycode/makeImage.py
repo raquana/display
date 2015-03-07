@@ -13,11 +13,13 @@ def getAvRGB(a, x, y):
 
 
 def makeImage():
+    lines = [line.rstrip('\n') for line in open("hc.dsp")]
+
     #text = (("Saturday 7th February, 2015",(135,26,227)),)
     r = random.randrange(0,255)
     g = random.randrange(0,255)
     b = random.randrange(0,255)
-    text = ((strftime("%H:%M  %a, %d-%b-%Y") + " HC: 48",(getAvRGB(r,g,b),getAvRGB(g,b,r),getAvRGB(b,r,g))),)
+    text = ((strftime("%H:%M  %a, %d-%b-%Y") + " HC: " + lines[0],(getAvRGB(r,g,b),getAvRGB(g,b,r),getAvRGB(b,r,g))),)
 #    text = ((strftime("%H:%M               "),(getAvRGB(r,g,b),getAvRGB(g,b,r),getAvRGB(b,r,g))),)
     font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 16)
     all_text = ""
